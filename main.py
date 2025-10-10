@@ -1,6 +1,7 @@
 from tkinter import *
 import random
 import time
+from Score import Score
 
 tk = Tk() # Створює нове вікно Tkinter
 tk.title("Гра: Ловець!")
@@ -11,3 +12,9 @@ tk.wm_attributes("-topmost", 1)
 # Створення полотна для малювання гри:
 canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)
 canvas.pack()
+
+score = Score(canvas)
+# Оновлення та пауза:
+tk.update()
+time.sleep(1)
+
