@@ -24,4 +24,18 @@ class Catcher:
         if self.canvas.coords(self.id)[2] >= self.canvas_width:
             self.x = 20
 
+    def draw(self):
+        # Оновлення позиції ловця на полотні
+        self.canvas.move(self.id, self.x, 0)
+        # Отримання поточних координатів ловця
+        pos = self.canvas.coords(self.id)
+
+        # Обмеження руху ловця зліва
+        if pos[0] <= 0:
+            self.x = 0
+        # Обмеження руху ловця справа
+        elif pos[2] >= self.canvas_width:
+            self.x = 0
+        # Якщо ловець не в крайніх позиціях, швидкість не змінюється
+
 
