@@ -11,3 +11,11 @@ class Catcher:
         # Збереження ширини полотна для подальшого використання при обмеженні руху ловця
         self.canvas_width = self.canvas.winfo_width()
         # (подальші методи для руху ловця і збирання об'єктів мають бути визначені)
+        self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
+        self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
+
+    def turn_left(self, evt):
+        # Якщо ловець не на краю зліва, встановлюємо швидкість для руху вліво
+        if self.canvas.coords(self.id)[0] > 0:
+            self.x = -20
+
