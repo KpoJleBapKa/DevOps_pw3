@@ -17,12 +17,17 @@ canvas.pack()
 score = Score(canvas)
 catcher = Catcher(canvas, 'blue', score)
 eggs = []
-while 1:  # Початок безкінечного циклу для ігрового процесу
-    if random.randint(1, 100) == 1:  # Випадкова перевірка (1% шанс)
-        eggs.append(Egg(canvas, 'red', score))  # Створення нового яйця та додавання до списку
-    tk.update_idletasks()  # Оновлення ігрового інтерфейсу без блокування інших завдань
-    tk.update()  # Повне оновлення всього ігрового вікна
-    time.sleep(0.01)  # Коротка пауза
+while 1:
+    if random.randint(1, 100) == 1:
+        eggs.append(Egg(canvas, 'red', score))
+    for egg in list(eggs):  # Ітерація по копії списку яєць
+        if egg.draw() == 'hit bottom':
+            eggs.remove(egg) # Якщо яйце досягло дна - видаляємо
+    tk.update_idletasks()
+    tk.update()
+    time.sleep(0.01)
 
+
+        
 tk.update()
 time.sleep(1)
