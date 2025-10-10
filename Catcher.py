@@ -38,4 +38,14 @@ class Catcher:
             self.x = 0
         # Якщо ловець не в крайніх позиціях, швидкість не змінюється
 
+    def catch(self, eggs):
+        catcher_pos = self.canvas.coords(self.id)
+        for egg in eggs:
+            egg_pos = self.canvas.coords(egg.id)
+            if catcher_pos[0] < egg_pos[2] < catcher_pos[2] and catcher_pos[1] < egg_pos[3] < catcher_pos[3]:
+                eggs.remove(egg)
+                self.canvas.delete(egg.id)
+                self.score.catched_egg()
+
+
 
