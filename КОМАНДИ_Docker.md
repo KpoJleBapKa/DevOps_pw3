@@ -1,7 +1,3 @@
-# Швидкий довідник команд Docker
-
-## Основні команди Docker
-
 ### Робота з образами
 ```bash
 # Завантажити образ
@@ -122,21 +118,3 @@ docker system prune -a
 - **Веб-додаток гри**: http://localhost:5000
 - **Redis Commander**: http://localhost:8081
 - **Redis API**: localhost:6379
-
-## Структура файлів проекту
-
-```
-DevOps_pw3/
-├── main.py                 # Оригінальна гра
-├── Catcher.py             # Клас ловця
-├── Egg.py                 # Клас яйця
-├── Score.py               # Клас рахунку
-├── RedisManager.py        # Менеджер Redis
-├── web_server.py          # Flask веб-сервер
-├── requirements.txt       # Python залежності
-├── Dockerfile            # Docker образ
-├── .dockerignore         # Ігнорування файлів
-├── docker-compose.yml    # Docker Compose конфігурація
-├── ЗВІТ_DevOps_Docker.md # Детальний звіт
-└── КОМАНДИ_Docker.md     # Цей файл
-```
